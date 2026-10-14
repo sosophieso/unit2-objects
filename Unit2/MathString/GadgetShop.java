@@ -20,46 +20,46 @@ public class GadgetShop {
 
         // A1. TODO: diagonal = square root of (width squared + height squared)
         //     Use Math.sqrt and Math.pow.
-        double diagonal = 0;
+        double diagonal = Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
         System.out.println("A1 Screen diagonal: " + diagonal);
 
         // A2. Two stores sell the same headphones.
         double priceA = 349.99;
         double priceB = 299.50;
         // TODO: store the lower price using a Math method.
-        double lower = 0;
+        double lower = Math.min(priceA, priceB);
         System.out.println("A2 Lower price: " + lower);
 
         // A3. TODO: savings = the positive difference between the two prices.
-        double savings = 0;
+        double savings = Math.abs(priceA - priceB);
         System.out.println("A3 Savings (raw): " + savings);
 
         // A4. TODO: round savings to cents.
         //     Multiply by 100, use Math.round, then divide by 100.0
-        double savingsCents = 0;
+        double savingsCents = Math.round(savings * 100) + 1;
         System.out.println("A4 Savings (rounded): " + savingsCents);
 
         // A5. TODO: a random whole number from 1 to 100 using Math.random()
-        int ticket = 0;
+        int ticket = (int) (Math.random() * 100) + 1;
         System.out.println("A5 Raffle ticket: " + ticket);
 
         // ---------------- PART B: The String class ----------------
         String code = "tab-2026-blue";
 
         // B1. TODO: the number of characters in code
-        int len = 0;
+        int len = code.length();
         System.out.println("B1 Length: " + len);
 
         // B2. TODO: the index of the first "-" in code
-        int dash = 0;
+        int dash = code.indexOf("-");
         System.out.println("B2 First dash at index: " + dash);
 
         // B3. TODO: the product type (everything before the first dash)
-        String type = "";
+        String type = code.substring(0, dash);
         System.out.println("B3 Type: " + type);
 
         // B4. TODO: the color (starts at index 9)
-        String color = "";
+        String color = code.substring(9);
         System.out.println("B4 Color: " + color);
 
         // B5. Run this line as written. Predict the output BEFORE you run it.
@@ -67,12 +67,12 @@ public class GadgetShop {
         System.out.println("B5 After code.toUpperCase(): " + code);
 
         // B6. TODO: change the line below so code really becomes uppercase.
-        code.toUpperCase();
+        code = code.toUpperCase();
         System.out.println("B6 After code = code.toUpperCase(): " + code);
 
         // B7. TODO: compare code with scanned using the correct String method.
         String scanned = "TAB-2026-BLUE";
-        boolean match = false;
+        boolean match = code.equals(scanned);
         System.out.println("B7 Codes match: " + match);
     }
 }
